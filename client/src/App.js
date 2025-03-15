@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Component/Navbar/navbar';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Allroutes from './pages/Allroutes';
 
 function App() {
   const [slidein, setSlidein] = useState(true);
@@ -20,7 +21,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar handleSlidein={handleSlidein}/>
+        <Navbar handleslidein={handleSlidein}/>
+        <Allroutes slidein={slidein} handleSlidein={handleSlidein}/>
       </Router>
     </div>
   );
