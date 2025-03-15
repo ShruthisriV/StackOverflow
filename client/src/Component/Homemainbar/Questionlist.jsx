@@ -1,9 +1,14 @@
-import React from 'react';
+import React from "react";
+import Question from "./Question";
 
-function Questionlist() {
+function Questionlist({ questionlist }) {
   return (
-    <div>Questionlist</div>
-  )
+    <>
+      {questionlist.map((question) => (
+        <Question question={question} key={question._id} />
+      ))}
+    </>
+  );
 }
 
-export default Questionlist
+export default Questionlist;
