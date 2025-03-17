@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Home/Home';
 import Askquestion from './Askquestion/Askquestion';
 import Auth from './Auth/Auth';
+import Question from './Question/Question';
+import Displayquestion from './Question/Displayquestion';
 
 function Allroutes({slidein, handleslidein}) {
   return (
@@ -11,6 +13,8 @@ function Allroutes({slidein, handleslidein}) {
             <Route path='/' element={<Home slidein={slidein} handleslidein={handleslidein}/>}/>
             <Route path='/Askquestion' element={<Askquestion />}/>
             <Route path='/Auth' element={<Auth />}/>
+            <Route path='/Question' element={<Question slidein={slidein} handleslidein={handleslidein}/>}/>
+            <Route path='/Question/:id' element={<Displayquestion slidein={slidein} handleslidein={handleslidein}/>}/>
         </Routes>
     </>
   )
