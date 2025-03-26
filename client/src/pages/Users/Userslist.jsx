@@ -21,6 +21,15 @@ const Userslist = () => {
         "tags": ["Machine Learning", "Python", "Data Science"],
         "answered": 25,
         "joinedon": "2024-06-10T09:00:00z"
+    },{
+        "_id": "u67890",
+        "name": "Alice Johnson",
+        "email": "alicejohnson@example.com",
+        "password": "anotherpassword789",
+        "about": "Frontend Developer",
+        "tags": ["React", "Javascript", "css"],
+        "answered": 15,
+        "joinedon": "2024-06-10T10:00:00z"
     }]
   return (
     <div className="user-list-container">
