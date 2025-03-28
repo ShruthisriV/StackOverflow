@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 import icon from "../../assets/icon.png";
 import Aboutauth from "./Aboutauth";
+import { signup, login } from "../../action/auth.js";
 
 const Auth = () => {
   const [issignup, setissignup] = useState(false);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handlesubmit = (e) => {
     e.preventDefault();
     if (!email && !password) {
@@ -18,8 +22,10 @@ const Auth = () => {
       if (!name) {
         alert("Enter a name to continue");
       }
+      dispatch(signup({ name, email, password }, navigate));
       console.log(name, password, email);
     } else {
+      dispatch(login({ email, password }, navigate));
       console.log(email, password);
     }
   };
@@ -82,7 +88,7 @@ const Auth = () => {
             />
           </label>
           <button type="submit" className="auth-btn">
-            {issignup ? "Sign up" : "Login in"}
+            {issignup ? "Sign up" : "Login"}
           </button>
         </form>
         <p>

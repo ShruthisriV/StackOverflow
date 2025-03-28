@@ -25,6 +25,11 @@ const Editprofileform = ({currentuser, setswitch}) => {
             <h3>About me</h3>
             <textarea name="" id="about" cols="30" rows="10" value={about} onChange={(e)=>setabout(e.target.value)}></textarea>
             </label>
+            <label htmlFor="tags">
+                <h3>Watched tags</h3>
+                <p>Add tags seperated by 1 space</p>
+                <input type="text" id="tags" onChange={(e) => settags(e.target.value.split(" "))}/>
+            </label>
             <br/>
             <input type="submit" value="save profile" className="user-submit-button" />
             <button type='button' className='user-cancel-btn' onClick={()=>setswitch(false)}>Cancel</button>
