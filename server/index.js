@@ -16,7 +16,7 @@ app.get('/', (req, res)=>{
 })
 
 const PORT = process.env.PORT || 5000
-const database_url="mongodb+srv://admin:admin123@cluster0.ixwhev6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const database_url=process.env.MONGODB_URL;
 
 mongoose.connect(database_url)
 .then(()=>app.listen(PORT,()=>{console.log(`server running on port ${PORT}`)}))
