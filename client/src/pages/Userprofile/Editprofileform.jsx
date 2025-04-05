@@ -1,14 +1,20 @@
 import React, {useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { updateprofile } from '../../action/users' 
 import './Userprofile.css'
 
 const Editprofileform = ({currentuser, setswitch}) => {
-    const [name, setname] = useState(currentuser?.name)
-    const [about, setabout]=useState(currentuser?.about)
+    const [name, setname] = useState(currentuser?.result?.name)
+    const [about, setabout]=useState(currentuser?.result?.about)
     const [tags, settags] = useState([])
+    const dispatch=useDispatch();
+
     const handlesubmit=(e)=>{
         e.preventDefault()
         if(tags[0]=='' || tags.length===0){
             alert("update tags field")
+        }else{
+            dispatch(updateprofile(currentuser?.result?._id, {name, about, tags}));
         }
         setswitch(false)
     }

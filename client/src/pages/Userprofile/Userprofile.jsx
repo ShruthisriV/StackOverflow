@@ -12,39 +12,12 @@ const Userprofile = ({ slidein }) => {
   const { id } = useParams();
   const [Switch, setswitch] = useState(false);
 
-  const users = [
-    {
-        "_id": "u12345",
-        "name": "John Doe",
-        "email": "johndoe@example.com",
-        "password": "securepassword123",
-        "about": "Software developer with a passion for open-source projects and algorithms.",
-        "tags": ["JavaScript", "Python", "Open-source"],
-        "answered": 10,
-        "joinedon": "2024-06-10T08:00:00z"
-    },{
-        "_id": "u54321",
-        "name": "Jane Smith",
-        "email": "janesmith@example.com",
-        "password": "mypassword456",
-        "about": "Data scientist with expertise in machine learning and big data.",
-        "tags": ["Machine Learning", "Python", "Data Science"],
-        "answered": 25,
-        "joinedon": "2024-06-10T09:00:00z"
-    },{
-        "_id": "u67890",
-        "name": "Alice Johnson",
-        "email": "alicejohnson@example.com",
-        "password": "anotherpassword789",
-        "about": "Frontend Developer",
-        "tags": ["React", "Javascript", "css"],
-        "answered": 15,
-        "joinedon": "2024-06-10T10:00:00z"
-    }]
+  const users = useSelector((state)=>state.usersreducer)
   
   const currentprofile = users.filter((user) => user._id === id)[0];
-  const currentuser = [{}]
-  // console.log(currentuser._id)
+  const currentuser = useSelector((state)=>state.currentuserreducer);
+  console.log(currentuser._id);
+  
   return (
     <div className="home-container-1">
       <Leftsidebar slidein={slidein} />
@@ -69,7 +42,7 @@ const Userprofile = ({ slidein }) => {
                 </p>
               </div>
             </div>
-            {currentuser?._id === id && (
+            {currentuser?.result?._id === id && (
               <button
                 className="edit-profile-btn"
                 type="button"
