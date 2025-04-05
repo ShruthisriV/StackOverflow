@@ -42,8 +42,7 @@ export const login = async (req, res) => {
       existinguser.password
     );
     if (!ispasswordcrct) {
-      res.status(400), json({ message: "Invalid credentials" });
-      return;
+      return res.status(400).json({ message: "Invalid credentials" });
     }
     const token = jwt.sign(
       {
