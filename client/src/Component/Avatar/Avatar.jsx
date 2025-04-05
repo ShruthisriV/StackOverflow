@@ -9,14 +9,14 @@ function Avatar({
     borderRadius, fontSize, cursor
 }) {
     const style={
-        backgroundColor,
-        padding: `${py} ${px}`,
-        color: color||"black",
-        borderRadius,
-        fontSize,
-        textAlign:"center",
-        cursor:cursor||null,
-        textDecoration: "none"
+      backgroundColor,
+      padding: `${py} ${px}`,
+      color: color||"black",
+      borderRadius,
+      fontSize,
+      textAlign:"center",
+      cursor:cursor||null,
+      textDecoration: "none"
     }
   return (
     <div style={style}>{children}</div>

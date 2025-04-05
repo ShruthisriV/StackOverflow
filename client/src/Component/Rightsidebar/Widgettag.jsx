@@ -19,7 +19,7 @@ function Widgettag() {
         "reactjs",
     ]
   return (
-    <div className="widdgettags">
+    <div className="widget-tags">
         <h4>Watched tags</h4>
         <div className="widget-tags-div">
             {tags.map((tag)=>(

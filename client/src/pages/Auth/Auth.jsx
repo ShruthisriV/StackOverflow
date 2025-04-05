@@ -23,10 +23,10 @@ const Auth = () => {
         alert("Enter a name to continue");
       }
       dispatch(signup({ name, email, password }, navigate));
-      console.log(name, password, email);
+      //console.log(name, password, email);
     } else {
       dispatch(login({ email, password }, navigate));
-      console.log(email, password);
+      //console.log(email, password);
     }
   };
   const handleswitch = () => {

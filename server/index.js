@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import cors from "cors"
 import dotenv from "dotenv"
 import userroutes from "./routes/user.js"
+import questionroutes from "./routes/question.js"
 
 const app=express();
 dotenv.config();
@@ -11,6 +12,7 @@ app.use(express.urlencoded({limit: "30mb", extended:true}))
 app.use(cors());
 
 app.use("/user", userroutes);
+app.use('/questions', questionroutes)
 app.get('/', (req, res)=>{
     res.send("Stack-overflow is running perfect")
 })

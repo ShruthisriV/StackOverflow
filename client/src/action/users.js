@@ -10,7 +10,7 @@ export const fetchallusers=()=>async(dispatch)=>{
 
 export const updateprofile=(id, updatedata)=>async(dispatch)=>{
     try{
-        const {data} = await api.updateprofile(id, updateprofile);
+        const {data} = await api.updateprofile(id, updatedata);
         dispatch({type: "UPDATE_CURRENT_USER",payload:data});
     }catch(error){
         console.log(error)

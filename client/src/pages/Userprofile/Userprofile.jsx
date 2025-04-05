@@ -13,10 +13,9 @@ const Userprofile = ({ slidein }) => {
   const [Switch, setswitch] = useState(false);
 
   const users = useSelector((state)=>state.usersreducer)
-  
-  const currentprofile = users.filter((user) => user._id === id)[0];
+  const currentprofile = users.filter((user) => user._id === id)[0]
   const currentuser = useSelector((state)=>state.currentuserreducer);
-  console.log(currentuser._id);
+  //console.log(currentuser._id);
   
   return (
     <div className="home-container-1">
