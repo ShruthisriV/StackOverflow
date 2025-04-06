@@ -3,8 +3,8 @@ import Question from "../models/Question.js";
 
 export const postanswer = async (req, res) => {
   const { id: _id } = req.params;
-  const { noofanswers, answerbody, useranswered } = req.body;
-  const userid = req.userid;
+  const { noofanswers, answerbody, useranswered, userid} = req.body;
+  // const userid = req.userid;
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res.status(404).send("question unavailable...");
   }

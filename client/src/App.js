@@ -1,37 +1,35 @@
-import { fetchallusers } from './action/users';
-import './App.css';
-import React, { useEffect, useState } from 'react';
-import Navbar from './Component/Navbar/navbar';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Allroutes from './pages/Allroutes';
-import { useDispatch } from 'react-redux';
-import { fetchallquestion } from './action/question';
-
+import { fetchallusers } from "./action/users";
+import "./App.css";
+import { useEffect, useState } from "react";
+import Navbar from "./Component/Navbar/navbar";
+import { BrowserRouter as Router } from "react-router-dom";
+import Allroutes from "./Allroutes";
+import { useDispatch } from "react-redux";
+import { fetchallquestion } from "./action/question";
 function App() {
-  const [slidein, setSlidein] = useState(true);
-  const dispatch=useDispatch();
-  
-  useEffect(()=>{
+  const [slidein, setslidein] = useState(true);
+  const dispatch = useDispatch();
+  useEffect(() => {
     dispatch(fetchallusers());
     dispatch(fetchallquestion());
-  }, [dispatch])
+  }, [dispatch]);
 
   useEffect(() => {
-    if(window.innerWidth<=768){
-      setSlidein(false);
+    if (window.innerWidth <= 768) {
+      setslidein(false);
     }
-  },[]);
-  const handleSlidein = () =>{
-    if(window.innerWidth<=768){
-      setSlidein((state)=> !state);
+  }, []);
+  const handleslidein = () => {
+    if (window.innerWidth <= 768) {
+      setslidein((state) => !state);
     }
   };
 
   return (
     <div className="App">
       <Router>
-        <Navbar handleslidein={handleSlidein}/>
-        <Allroutes slidein={slidein} handleSlidein={handleSlidein}/>
+        <Navbar handleslidein={handleslidein} />
+        <Allroutes slidein={slidein} handleslidein={handleslidein} />
       </Router>
     </div>
   );

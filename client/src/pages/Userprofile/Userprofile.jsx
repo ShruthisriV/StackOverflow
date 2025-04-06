@@ -8,19 +8,14 @@ import Editprofileform from "./Editprofileform";
 import Profilebio from "./Profilebio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBirthdayCake, faPen } from "@fortawesome/free-solid-svg-icons";
-const Userprofile = ({slidein}) => {
+const Userprofile = ({ slidein }) => {
   const { id } = useParams();
   const [Switch, setswitch] = useState(false);
 
-  const users = useSelector((state)=>state.currentuserreducer)
-  const currentprofile = users.filter((user) => user._id === id)[0]
-  const currentuser = useSelector((state)=>state.currentuserreducer);
-  //console.log(currentuser._id);
-
-  if (!users || !users.result) {
-    return <div>Loading...</div>
-  }
-  
+  const users = useSelector((state) => state.usersreducer);
+  const currentprofile = users.filter((user) => user._id === id)[0];
+  const currentuser = useSelector((state) => state.currentuserreducer);
+  // console.log(currentuser._id)
   return (
     <div className="home-container-1">
       <Leftsidebar slidein={slidein} />

@@ -31,6 +31,7 @@ const Questiondetails = () => {
                 dispatch(postanswer({id,
                     noofanswers:answerlength+1,
                     answerbody:answer,
+                    userid: user.result._id,
                     useranswered:user.result.name}));
                 setanswer("")
             }
